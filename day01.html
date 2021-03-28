@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<style>
+  /* float 清除浮动 */
+    /* height: 500px; */
+  /* .root {
+    background: aqua;
+  }
+
+  .root::after {
+    display: block;
+    clear:both;
+    content: "";
+    height: 0;
+    visibility: hidden;
+  }
+
+  .float {
+    float: left
+  } */
+
+  /* .clear {
+    clear: both
+  } */
+  /* ------- */
+
+  /* 盒模型 box-sizing */
+  /* .box {
+    width: 500px;
+    height: 500px;
+    background:aqua;
+    padding-top: 100px;
+  }
+
+  .box2 {
+    width: 500px;
+    height: 500px;
+    background:red;
+    padding-top: 100px;
+    box-sizing: border-box;
+  } */
+  /* ------- */
+
+  /* position */
+  /* px 像素
+  %  根据父元素的
+  vh -> 高 200vh 浏览器的可见高度 2倍
+  vw -> 宽 200vw 浏览器的可见宽度 2倍 */
+  /* .root {
+    height: 500px;
+    background: aqua;
+    padding-top: 100px;
+  }
+
+  .a {
+    height: 100px;
+    background:yellow;
+    position: relative;
+  }
+  
+  .b {
+    position: absolute;
+    top: 0;
+    left: 0;
+  } */
+  /* ---- */
+
+  /* calc 计算属性 */
+  /* .root {
+    height: 100vh;
+    background: aqua;
+  }
+
+  .top {
+    height: 200px;
+    background: yellow;
+  }
+
+  .bottom {
+    height: calc(100vh - 200px);
+    background: red;
+  } */
+
+  /* transition hover */
+  /* transition 3个参数 1. 需要变化的 all 只能过渡符合线性变化规则的  2. 时间  3。变化方式 */
+  /* .hover {
+    transition: all 2s ease;
+    width: 100px;
+    background: #ccc;
+  }
+
+  .hover:hover {
+    color: red;
+    width: 200px;
+    background: #000;
+  } */
+</style>
+
+<!-- color
+background
+float
+text-align
+position
+display
+left
+right
+top
+bottom
+margin
+padding
+box-sizing
+transition
+:   伪类   hover focus 
+::  伪元素
+flex -->
+
+<!-- box-sizing  content-box border-box -->
+
+<body>
+  <!-- div -->
+  <!-- 块级元素 div p h1-h6 section ul ol
+  行内元素 a img span // 不可以直接改变高度  line-height -->
+  <!-- <span>我是行内元素</span>
+  <p>1111111<span>222</span></p> -->
+  <!-- seo  // 搜索引擎优化 -->
+  <!-- html5新增 更加语义化
+    title h1
+  <title></title>
+  <header>我是标题</header>
+  <nav></nav>
+  <canvas></canvas> -->
+
+  <!-- cookie localStorage sessionStorage都叫做本地存储方案
+  sessionStorage  浏览器关闭就失效。
+  localStorage    除非手动删除， 一直存在。
+  cookie  可以指定过期时间 存储大小4k  用户凭证token  -->
+
+  <!-- alt title -->
+  <!-- <img src="./ddd.png"/> -->
+  <!-- alt图片显示错误时显示的文字
+  title是鼠标hover上时显示的标题 -->
+
+
+  <!-- float -->
+  <!-- 1. 指定高度  缺点： 只能固定高度 不可变
+  2. 加入子元素 clear: both来清除浮动  缺点：多了很多无意义的标签 
+  3. 使用伪元素来清除浮动，::after 在元素后加一个空标签 clear: both； content:'' ;visibility: hidden; display: block;height:0 -->
+  <!-- <div class="root">
+    <div class="float">float元素</div>
+  </div> -->
+  
+
+  <!-- box-sizing -->
+  <!-- content-box border-box
+  border-box  height 500px  实际展示的就是500 500 = content+padding+border
+  content-box height 500px  实际展示的 = 500+padding+border -->
+  <!-- <div class="box">
+    我是个盒子
+  </div>
+
+   <div class="box2">
+    我是个盒子2
+  </div> -->
+
+  <!-- position absolute绝对定位 fixed固定定位 relative相对定位 -->
+  <!-- absolute 相对于从父元素开始向上查找到第一个定位为非static的定位的元素 -->
+  <!-- <div class="root">
+    <div class="a">
+      <div class="b">我是b</div>
+    </div>
+  </div> -->
+
+  <!-- 计算属性 calc -->
+  <!-- <div class="root">
+    <div class="top"></div>
+    <div class="bottom"></div>
+  </div> -->
+
+  <!-- transition :hover -->
+  <!-- <div class="hover">啦啦啦啦</div> -->
+  
+</body>
+</html>
