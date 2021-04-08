@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<style>
+  /* .container {
+    display: flex;
+    justify-content: space-between;
+  } */
+
+  /* .left, .right {
+    height:  500px;
+  }
+
+  .left {
+    width: 200px;
+    background: aqua
+  }
+
+  .right {
+    flex: 1;
+    background: #ccc;
+  } */
+
+/* --- */
+
+  /* .left {
+    width: 200px;
+    height: 200px;
+    background:red
+  }
+
+  .center {
+    height: 200px;
+    width: 200px;
+    background:yellow;
+  }
+
+  .right{
+    width: 200px;
+    height: 200px;
+    background:green
+  } */
+
+  .center {
+    display: none;
+  }
+
+  @media (max-width: 800px) {
+    .center {
+      display:block;
+    }
+
+    .right {
+      display: none;
+    }
+  }
+</style>
+<body>
+  <!-- 1.flex布局 子元素的float， clear, vertical-align失效
+  2.row row-reverse column column-reverse
+  3.justify-content: flex-start flex-end center space-between space-around  //主轴
+   align-items: flex-start flex-end center baseline stretch  // 交叉轴
+  4.flex: 1  
+    
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%; 
+  -->
+  
+  <!-- flex -->
+  <!-- <div class="container">
+    <div class="left"></div>
+    <div class="right"></div>
+  <div> -->
+  <!-- --- -->
+
+    <!-- space-between -->
+    <!-- <div class="container">
+      <div class="left"></div>
+      <div class="center"></div>
+      <div class="right"></div>
+    <div> -->
+    <!-- --- -->
+
+    <div class="container">
+      <div class="left">left</div>
+      <div class="right">right</div>
+      <div class="center">center</div>
+    </div>
+
+  </div>
+</body>
+</html>
