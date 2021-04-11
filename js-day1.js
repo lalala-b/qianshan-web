@@ -33,3 +33,34 @@
 // a++ ++a
 
 // true ? "" :""
+
+// var 局部变量
+// 没有var
+// var aa = undefined;
+// function foo() {
+//   var a = 1;
+// }
+
+// for (let i = 0; i < 10; i++) {
+
+// }
+
+// console.info(i);
+
+// aa = 1;
+
+// foo();
+
+// console.info(22);
+// {
+//   let cc = 1;
+// }
+
+// foo();
+// console.info(cc);
+
+console.info(a);
+var a = 1;
+
+console.info(b);
+let b = 1;
