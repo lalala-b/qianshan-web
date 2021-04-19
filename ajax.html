@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <script>
+    // get post put delete
+    function handleClick() {
+      // alert("请求");
+      let token = "";
+      $.ajax({
+        url: "http://localhost:3000/login",
+        method: "get",
+        data: {
+          code: 1,
+        },
+        success: function (response) {
+          console.info("success", response);
+          token = response.token;
+          const div = document.getElementById("div");
+          div.innerHTML = response.token;
+        },
+        error: function (err) {
+          console.info("error", err);
+        },
+        complete: function () {
+          console.info("complete");
+        },
+      });
+
+      console.info(token);
+    }
+
+    // 浏览器的同源策略
+    // 协议 域名 端口
+    // 有一个不同都不是同源， 浏览器会阻断请求
+    // http的端口默认是80;
+    // https端口默认是443;
+
+    // 1. ajax jsonp  // 只能用get请求 不能用post 因为他是动态的插入script标签
+    // 2. iframe  //
+    // 3. node    // 服务端 中间层
+    // 4. ssr     // 服务端渲染
+    // 5. cors    // 后台 cors 允许哪个地址来访问  *
+  </script>
+  <body>
+    <div id="div" onclick="handleClick()">发送请求</div>
+  </body>
+</html>
