@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      background: url(https://dss0.bdstatic.com/k4oZeXSm1A5BphGlnYG/skin/759.jpg?2)
+        no-repeat;
+      background-size: cover;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* float */
+    /* header::after {
+      clear: both;
+      content: "";
+      visibility: hidden;
+      display: block;
+      height: 0;
+    }
+
+    .left {
+      float: left;
+    }
+
+    .right {
+      float: right;
+    } */
+
+    .left,
+    .right {
+      color: white;
+    }
+
+    .left a {
+      margin-right: 10px;
+    }
+
+    .right a {
+      margin-left: 10px;
+    }
+
+    .inputBox {
+      margin: 0 auto;
+      width: 656px;
+    }
+
+    .inputBox img {
+      display: block;
+      margin: 0 auto;
+      width: 270px;
+      height: 130px;
+    }
+
+    .input {
+      border: 2px solid #4e6ef2;
+      border-radius: 6px;
+      height: 44px;
+    }
+
+    .input button {
+      width: 108px;
+      padding: 0;
+      margin: 0;
+      border: none;
+      outline: none;
+      display: inline-block;
+      background: #4e6ef2;
+      height: 100%;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .input input {
+      width: calc(100% - 108px);
+      padding: 0;
+      margin: 0;
+      border: none;
+      outline: none;
+      /* display: inline-block; */
+      float: left;
+      height: 100%;
+      padding: 0 20px;
+      box-sizing: border-box;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
+
+    .more {
+      position: relative;
+    }
+
+    .more ul {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 90px;
+      background: #fff;
+      transform: translateX(-30%);
+      display: none;
+    }
+
+    .more:hover ul {
+      display: block;
+    }
+
+    li {
+      color: #000;
+      list-style: none;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="root">
+      <header>
+        <div class="left">
+          <a>新闻</a>
+          <a>hao123</a>
+          <a>地图</a>
+          <a>直播</a>
+          <a>视频</a>
+          <a>贴吧</a>
+          <a>学术</a>
+          <a class="more">
+            更多
+            <ul>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+            </ul>
+          </a>
+        </div>
+        <div class="right">
+          <a>深圳</a>
+          <a>设置</a>
+          <a>啦啦啦</a>
+        </div>
+      </header>
+      <div class="body">
+        <div class="inputBox">
+          <img
+            src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white-d0c9fe2af5.png"
+          />
+          <div class="input">
+            <input type="" />
+            <button>百度一下</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

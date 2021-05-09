@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+  <script>
+    window.onload = function () {
+      const token = localStorage.getItem("token");
+
+      $.ajax({
+        url: "http://localhost:3000/getList",
+        method: "get",
+        data: {
+          token,
+        },
+        success: (res) => {
+          if (res.code === 401) {
+            // 说明需要去重新登陆
+            window.location.href = "./login.html";
+          } else {
+            // todo
+            let dom = "";
+            res.data.forEach((item) => {
+              dom += `<div><span>id:</span>${res.data[i].id}</div>`;
+            });
+
+            const root = document.getElementById("root");
+            root.innerHTML = dom;
+            // root里的内容是dom变量
+          }
+        },
+      });
+    };
+  </script>
+
+  <body>
+    <div id="root">list</div>
+  </body>
+</html>

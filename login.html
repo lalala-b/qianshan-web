@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  /* 块级元素居中 margin: 0 auto */
+  #username {
+    display: block;
+    margin: 30px auto 20px;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  #password { 
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    background:#00A1D6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+<script src="./login.js"></script>
+
+<body>
+  <input id="username" type="text" value="" placeholder="请输入用户名"></input>
+  <input id="password" value="" placeholder="请输入密码"></input>
+  <button type="" onclick="handleLogin()">登陆</button>
+</body>
+</html>
