@@ -9,7 +9,7 @@
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 
   <script>
-    window.onload = function () {
+    function getList(callback) {
       const token = localStorage.getItem("token");
 
       $.ajax({
@@ -19,6 +19,7 @@
           token,
         },
         success: (res) => {
+          callback(res);
           if (res.code === 401) {
             // 说明需要去重新登陆
             window.location.href = "./login.html";
@@ -35,6 +36,17 @@
           }
         },
       });
+    }
+
+    function changeList(res) {
+      console.info("-------", res);
+      // ...........................
+      // ...................
+      // ..................
+    }
+
+    window.onload = function () {
+      getList(changeList);
     };
   </script>
 
