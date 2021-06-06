@@ -11,11 +11,23 @@
   <script src="./index.js"></script>
   <body>
     <div class="root">
-      <div class="headerTabs">
-        <span class="selected">行情</span>
-        <span class="segmentation"></span>
-        <span>自选</span>
+      <div class="header">
+        <div class="headerTabs">
+          <span class="selected">行情</span>
+          <span class="segmentation"></span>
+          <span>自选</span>
+        </div>
+        <div class="tools">
+          <span class="toolButton" id="toolButton" onclick="handleOpenTools()"
+            >操作</span
+          >
+          <span class="confirm" id="confirm" onclick="handleConfirm()"
+            >确定</span
+          >
+          <span class="cancel" id="cancel" onclick="handleCancel()">取消</span>
+        </div>
       </div>
+
       <div class="body">
         <div class="title">
           <ul class="listUl">
@@ -32,3 +44,68 @@
     </div>
   </body>
 </html>
+
+<script type="text/javascript">
+  let selectedArr = [];
+
+  const handleOpenTools = () => {
+    const tools = document.getElementById("toolButton");
+    const confirm = document.getElementById("confirm");
+    const cancel = document.getElementById("cancel");
+
+    confirm.style.display = "inline-block";
+    cancel.style.display = "inline-block";
+    tools.style.display = "none";
+
+    const contentDom = document.getElementById("content");
+    const radioList = getByClass(contentDom, "radio");
+    radioList.forEach((item) => {
+      item.style.display = "inline-block";
+    });
+  };
+
+  const handleCancel = () => {
+    const tools = document.getElementById("toolButton");
+    const confirm = document.getElementById("confirm");
+    const cancel = document.getElementById("cancel");
+
+    confirm.style.display = "none";
+    cancel.style.display = "none";
+    tools.style.display = "inline-block";
+
+    const contentDom = document.getElementById("content");
+    const radioList = getByClass(contentDom, "radio");
+    radioList.forEach((item) => {
+      item.style.display = "none";
+    });
+  };
+
+  const handleConfirm = () => {
+    const tools = document.getElementById("toolButton");
+    const confirm = document.getElementById("confirm");
+    const cancel = document.getElementById("cancel");
+
+    // confirm.style.display = "none";
+    // cancel.style.display = "none";
+    // tools.style.display = "inline-block";
+
+    // const contentDom = document.getElementById("content");
+    // const radioList = getByClass(contentDom, "radio");
+    // radioList.forEach((item) => {
+    //   item.style.display = "none";
+    // });
+  };
+
+  const handleClick = (event, index) => {
+    if (event.target.checked) {
+      event.target.attr("checked", false);
+    } else {
+      event.target.setAttribute("checked", "true");
+      selectedArr.push(globalData[index].code);
+    }
+
+    request("/addOptional", "post", { token, ids: selectedArr }).then(
+      (res) => {}
+    );
+  };
+</script>

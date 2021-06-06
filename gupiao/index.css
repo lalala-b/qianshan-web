@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+.header {
+  position: relative;
+}
+
 .headerTabs {
   width: 200px;
   margin: 20px auto;
@@ -112,4 +116,23 @@
 
 .green {
   color: rgb(66, 205, 20) !important;
+}
+
+.tools {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 30px;
+  margin: auto;
+  height: fit-content;
+  cursor: pointer;
+}
+
+.confirm,
+.cancel {
+  display: none;
+}
+
+.radio {
+  display: none;
 }

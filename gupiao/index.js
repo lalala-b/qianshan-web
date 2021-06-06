@@ -1,8 +1,24 @@
+let globalData = {};
+
 window.onload = () => {
   getList();
 
   setInterval(() => {
-    getList();
+    // getList();
+    const contentDom = document.getElementById("content");
+
+    const domList = getByClass(contentDom, "listUl contentUl");
+
+    request("/getList").then((res) => {
+      // console.info(res);
+      res.forEach((item, index) => {
+        domList[index].childNodes[1].innerText = item.newPrice;
+        domList[index].childNodes[2].innerText = item.orValue;
+        domList[index].childNodes[3].innerText = item.maxPrice;
+        domList[index].childNodes[4].innerText = item.minPrice;
+        domList[index].childNodes[5].innerText = item.oldPrice;
+      });
+    });
   }, 1000);
 };
 
@@ -39,9 +55,12 @@ const getList = () => {
       //     oldPrice +
       //     "</li></ul>";
       // }
-
+      globalData = data;
       data.forEach(
-        ({ name, code, newPrice, orValue, maxPrice, minPrice, oldPrice }) => {
+        (
+          { name, code, newPrice, orValue, maxPrice, minPrice, oldPrice },
+          idx
+        ) => {
           // if (+orValue > 0) {
           //   str +=
           //     "<ul class='listUl contentUl'><li class='nameItem'><span>" +
@@ -94,9 +113,10 @@ const getList = () => {
           //     oldPrice +
           //     "</li></ul>";
           // }
-
           str +=
-            "<ul class='listUl contentUl'><li class='nameItem'><span>" +
+            "<ul class='listUl contentUl'><li class='nameItem'><input class='radio' type='radio' onclick='handleClick(event, " +
+            idx +
+            ")'/><span>" +
             name +
             "</span><br /><span>" +
             code +
