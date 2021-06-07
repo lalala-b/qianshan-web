@@ -85,6 +85,8 @@
     const confirm = document.getElementById("confirm");
     const cancel = document.getElementById("cancel");
 
+    console.info(selectedArr)
+
     // confirm.style.display = "none";
     // cancel.style.display = "none";
     // tools.style.display = "inline-block";
@@ -97,15 +99,33 @@
   };
 
   const handleClick = (event, index) => {
-    if (event.target.checked) {
-      event.target.attr("checked", false);
+    // 拿到所有radio类的元素
+    const contentDom = document.getElementById("content");
+    const radioList = getByClass(contentDom, "radio");
+
+    // 获取点击的元素的code, 在用于存储已选择的数组中查找索引， 
+    const codeIndex = selectedArr.indexOf(globalData[index].code);
+
+    // 大于 -1 说明可以找到，说明目前的状态是已选择的， 需要去将这个元素的selectedRadio类移除，
+    // 并从selectedArr数组中将code移除。
+    if (codeIndex > -1) {
+      // 通过数组的splice方法移除元素， 该方法接收两个参数splice(索引， 长度)。
+      selectedArr.splice(codeIndex, 1);
+
+      // 移除类
+      radioList[index].classList.remove("selectedRadio");
+      
     } else {
-      event.target.setAttribute("checked", "true");
+    // 反之，即是小于等于-1， 说明没找到，说明目前状态是未选择，需要把这个元素加上selectedRadio类，
+    // 当做已选择，并把code推入selectedArr数组中。
       selectedArr.push(globalData[index].code);
+
+      // 拿到所有radio的节点， 通过传入的index, radioList[index]就可以拿到当前点击的节点， 添加类
+      radioList[index].classList.add("selectedRadio")
     }
 
-    request("/addOptional", "post", { token, ids: selectedArr }).then(
-      (res) => {}
-    );
+    // request("/addOptional", "post", { token, ids: selectedArr }).then(
+    //   (res) => {}
+    // );
   };
 </script>

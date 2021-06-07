@@ -134,5 +134,15 @@
 }
 
 .radio {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #ccc;
   display: none;
+  box-sizing: border-box;
+}
+
+.selectedRadio {
+  background: rgb(0, 122, 204);
 }

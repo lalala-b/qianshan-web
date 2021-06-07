@@ -114,9 +114,9 @@ const getList = () => {
           //     "</li></ul>";
           // }
           str +=
-            "<ul class='listUl contentUl'><li class='nameItem'><input class='radio' type='radio' onclick='handleClick(event, " +
+            "<ul class='listUl contentUl'><li class='nameItem'><span class='radio' type='radio' onclick='handleClick(event, " +
             idx +
-            ")'/><span>" +
+            ")'></span><span>" +
             name +
             "</span><br /><span>" +
             code +
@@ -197,7 +197,7 @@ const getByClass = (oParent, sClass) => {
   var aResult = [];
   var i = 0;
   for (i = 0; i < aEle.length; i++) {
-    if (aEle[i].className == sClass) {
+    if (aEle[i].className.indexOf(sClass) > -1) {
       aResult.push(aEle[i]);
     }
   }
