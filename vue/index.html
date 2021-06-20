@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- vue理念 mvvm模型  model view view-model
+    mvc model view control -->
+    <div id="app">
+      <div>{{message}}</div>
+      <div>{{reversedMessage}}</div>
+      <!-- v-bind: 简写 : -->
+      <div :title="bindTitle">指令</div>
+      <div>
+        <!-- v-if true 显示 false 隐藏  -->
+        <!-- 条件渲染  1. v-if 2.v-show
+        v-if 元素直接删除，
+        v-show display:none -->
+        <!-- 状态变更情况比较少的时候 推荐用v-if
+        频繁控制显示与否 要用v-show -->
+        <span
+          v-show="flag"
+          :style="{
+                color: spanColor
+              }"
+          v-on:click="handleClick"
+          >操作</span
+        >
+        <!-- v-on 简写@ 执行 绑定方法 -->
+        <span
+          v-if="!flag"
+          :style="{
+                color: spanColor
+              }"
+          @click="handleClick"
+          >确定</span
+        >
+        <span
+          v-if="!flag"
+          :style="{
+                color: spanColor
+              }"
+          @click="handleClick"
+          >取消</span
+        >
+        <div id="content">
+          <!-- v-for循环 写法是 item in->这是关键字 需要循环的数组 -->
+          <!-- v-for 必须要指明key key必须是唯一值 不要用index  -->
+          <div v-for="(item, index) in todoList" :key="item.id">
+            <!-- 动态绑定class  -->
+            <span
+              class="radio"
+              :class="{ selectedRadio: selectedIndex === index }"
+              @click="handleSelect(index)"
+            ></span>
+            {{item.id}}:{{item.value}}
+          </div>
+        </div>
+
+        <!-- 双向数据绑定 v-model  -->
+        <input id="input" v-model="inputValue" />
+        {{inputValue}}
+      </div>
+    </div>
+  </body>
+</html>
+<style>
+  .radio {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    display: inline-block;
+  }
+
+  .selectedRadio {
+    background: aqua;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  new Vue({
+    // 当前vue实例挂在的ID，绑定id
+    el: "#app",
+    data: {
+      message: "hello world",
+      bindTitle: "v- ....都叫做指令",
+      flag: true,
+      todoList: [
+        {
+          id: 1,
+          value: "好好学习",
+        },
+        {
+          id: 2,
+          value: "天天向上",
+        },
+        { id: 3, value: "先定个小目标" },
+        {
+          id: 4,
+          value: "月薪过万",
+        },
+      ],
+      inputValue: "",
+      selectedIndex: -1,
+      spanColor: "red",
+    },
+    watch: {
+      flag: function () {
+        console.info("flag变了，变化的值是：", this.flag);
+        // if(!this.flag) {
+        //   .... todo
+        // }
+      },
+    },
+    // 计算属性
+    // 只要依赖不变，会立即返回结果，对结果进行缓存
+    computed: {
+      reversedMessage: function () {
+        // `this` 指向 vm 实例
+        return this.message.split("").reverse().join("");
+      },
+    },
+    methods: {
+      handleClick() {
+        this.spanColor = 'aqua';
+        this.flag = !this.flag;
+        // if(this.flag) {
+        //   ..... todo
+        // } else {
+        //   ..... todo
+        // }
+      },
+
+      handleSelect(index) {
+        this.selectedIndex = index;
+      },
+    },
+    // 八个声明周期
+    beforeCreate() {
+      console.info("创建前");
+    },
+    created() {
+      console.info("创建完成");
+    },
+    beforeMount() {
+      console.info("挂载前");
+    },
+    mounted() {
+      console.info("挂载完成");
+    },
+    beforeUpdate() {
+      console.info("更新前");
+    },
+    updated() {
+      console.info("更新完成");
+    },
+    beforeDestory() {
+      console.info("销毁前");
+    },
+    destoryed() {
+      console.info("销毁完成");
+    },
+  });
+</script>
