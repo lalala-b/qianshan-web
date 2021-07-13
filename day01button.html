@@ -1,0 +1,74 @@
+<!-- 按钮 背景白外框黑文字黑
+     hover 渐变 背景黑外框黑文字白
+     点击弹窗 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A BUTTON</title>
+    <style>
+        .button {
+            display: inline-block;
+            width: 150px;
+            height: 100px;
+            background-color:white; 
+            border: 2px dashed black;
+            border-radius: 10px;
+            color:black;
+            padding: 15px 35px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            padding: auto;
+            margin: 10px;
+            cursor: pointer;
+            transition: all 1s ease-in .5s;
+        }
+        .button span{
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        .button span::after {
+            content: '(☆_☆)';
+            position: absolute;
+            opacity: 0;
+             top: 0;
+             right: -50px;
+             transition: 0.5s;
+        }
+        .button:hover span {
+            padding-right: 30px;
+        }
+
+        .button:hover span::after {
+             opacity: 1;
+             right: -10px;
+        }  
+         .button:hover {
+            
+            background-color: black;
+            color:white;
+        
+        }
+
+    </style>
+    <script>
+        function alertMes()
+        {
+            alert("你发财了($ _ $)")
+        }
+    </script>
+</head>
+
+<body>
+
+<button class="button " onclick="alertMes()"><span >TRY ME</span></button>
+    
+</body>
+
+
+</html>
